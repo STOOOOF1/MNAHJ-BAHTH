@@ -73,11 +73,12 @@ button{font-family:inherit;cursor:pointer;border:none}
 .confirm button{flex:1;border-radius:12px;padding:10px;font-weight:700;font-size:15px}
 .confirm .y{background:var(--rose);color:#fff}.confirm .n{background:#fff;border:1.5px solid var(--line);color:var(--ink)}
 footer{text-align:center;color:var(--gray);font-size:12.5px;margin-top:18px;line-height:1.7}
+.proglink{display:flex;align-items:center;gap:10px;margin:-2px 0 12px;font-size:12px;color:#5d6b6a;line-height:1.5}.proglink button{flex:none;font:inherit;font-size:12.5px;font-weight:800;color:#0f5c5a;background:#e3f1ef;border:1px solid #cfe0dd;border-radius:99px;padding:6px 12px;cursor:pointer}
 </style></head><body>
 <div class="wrap">
 <header><h1>بطاقات مناهج البحث الاقتصادي<small>ماجستير الاقتصاد الإسلامي · الجامعة الإسلامية</small></h1><button class="menuBtn" id="menuBtn">☰ القائمة</button></header>
 <div class="prog"><div class="row"><span>التقدم الكلي</span><span id="totTxt"></span></div><div class="bar"><i id="totBar"></i></div></div>
-<div class="levels" id="levels"></div>
+<div class="levels" id="levels"></div><div class="proglink"><button id="progBtn" type="button">🔗 انسخ رابط تقدّمك</button><span>احفظه في المفضلة: يعيدك إلى موضعك وما أنجزته ولو مُسح حفظ المتصفح</span></div>
 <div id="main"></div>
 <footer>تقدّمك محفوظ في هذا المتصفح فقط · المحتوى من مذكرة المقرر، وعبارات «حفظ» و«لا تخلط» إضافات للمراجعة</footer>
 </div>
@@ -210,7 +211,7 @@ function order(L){const ids=CARDS[L].map(c=>c.id);let o=(S.order[L]||[]).filter(
 function byId(id){const L=+id.split('-')[0].slice(1);return CARDS[L].find(c=>c.id===id);}
 function doneCount(L){return CARDS[L].filter(c=>S.done[c.id]).length;}
 function complete(L){return doneCount(L)===CARDS[L].length;}
-function unlocked(L){return L===1||complete(L-1);}
+function unlocked(L){return true;} // كل المستويات مفتوحة
 function nextCard(L){return order(L).find(i=>!S.done[i])||null;}
 function toast(m){const t=$('toast');t.textContent=m;t.classList.add('show');clearTimeout(t._h);t._h=setTimeout(()=>t.classList.remove('show'),1600);}
 function renderTop(){
@@ -223,7 +224,7 @@ function renderTop(){
 function show(id){
  const L=S.level;renderTop();
  if(id){cur=id;}else{cur=nextCard(L);}
- if(!cur){finish(L);return;}
+ if(!cur){finish(L);PROG.sync();return;}
  const c=byId(cur),o=order(L),i=CARDS[L].findIndex(x=>x.id===cur)+1,left=CARDS[L].length-doneCount(L),isD=!!S.done[cur];
  $('main').innerHTML=`<div class="card"><div class="cin"><div class="meta"><span class="chap">${c.ch}</span><span class="pos">المستوى ${L} · بطاقة ${i} من ${CARDS[L].length} ${isD?'<span class="done-tag">✓ تمت</span>':''}</span></div>
  <h2>${c.t}</h2><div class="body">${c.b}</div>
@@ -237,7 +238,7 @@ function show(id){
 function finish(L){
  const last=L===LEVELS.length;
  $('main').innerHTML=`<div class="card"><div class="finish"><div class="em">${last?'🏆':'🎉'}</div><h2 style="color:var(--teal);font-size:22px">${last?'أتممت المقرر كاملًا!':'أتممت المستوى '+L+': '+LEVELS[L-1].name}</h2>
- <p>${last?'راجعت 100 بطاقة على أربعة مستويات. بارك الله في علمك.':'انفتح لك المستوى التالي: «'+LEVELS[L].name+'».'}</p>
+ <p>${last?'راجعت 100 بطاقة على أربعة مستويات. بارك الله في علمك.':'المستوى التالي: «'+LEVELS[L].name+'»، وفيه تعمّق أكثر.'}</p>
  ${last?'':'<button class="ok" id="nextL">انتقل إلى المستوى التالي ←</button>'}<button class="later" style="width:100%" id="rev">راجع بطاقات هذا المستوى</button></div></div>`;
  if(!last)$('nextL').onclick=()=>{S.level=L+1;save();hist=[];show();};
  $('rev').onclick=()=>{hist=[];show(order(L)[0]);};
@@ -252,6 +253,25 @@ $('menuBtn').onclick=openSheet;$('shClose').onclick=closeSheet;$('sheetBg').oncl
 $('resetBtn').onclick=()=>$('confirm').classList.add('show');
 $('no').onclick=()=>$('confirm').classList.remove('show');
 $('yes').onclick=()=>{const L=S.level;CARDS[L].forEach(c=>delete S.done[c.id]);delete S.order[L];save();hist=[];closeSheet();toast('أُعيد تعيين المستوى');show();};
-if(!unlocked(S.level))S.level=1;
-show();
+
+/* ===== رابط التقدم: يُكتب التقدم والموضع في الرابط، فيعود الدارس إلى مكانه ولو مُسح حفظ المتصفح ===== */
+const PROG=(()=>{const A='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_';
+ const lvOf=id=>+String(id).split('-')[0].slice(1);
+ function enc(){const ids=P.ids(),d=P.done();let s='';for(let i=0;i<ids.length;i+=6){let v=0;for(let j=0;j<6;j++)if(d[ids[i+j]])v|=1<<j;s+=A[v];}
+  const c=P.cur();return 'p='+s+'&l='+P.level()+(c?'&c='+c:'');}
+ function sync(){try{window.history.replaceState(null,'','#'+enc());}catch(e){}}
+ function load(){let start=null;try{const m={};(location.hash||'').replace(/^#/,'').split('&').forEach(kv=>{const i=kv.indexOf('=');if(i>0)m[kv.slice(0,i)]=kv.slice(i+1);});
+  if(!m.p)return null;const ids=P.ids(),d=P.done(),before=ids.filter(i=>d[i]).length;let fromLink=0;
+  for(let i=0;i<ids.length;i++){const v=A.indexOf(m.p[Math.floor(i/6)]||'A');if(v>=0&&(v>>(i%6))&1){fromLink++;d[ids[i]]=true;}}
+  if(fromLink>=before){if(m.c&&ids.includes(m.c)){P.go(lvOf(m.c),m.c);start=m.c;}else if(+m.l>=1&&+m.l<=4)P.go(+m.l,null);}
+  P.save();}catch(e){}return start;}
+ function copy(){const url=location.href.split('#')[0]+'#'+enc();const ok=()=>toast('نُسخ الرابط ✓ احفظه في المفضلة أو أرسله لنفسك');
+  const fb=()=>{const t=document.createElement('textarea');t.value=url;t.style.cssText='position:fixed;opacity:0';document.body.appendChild(t);t.select();
+   let done=false;try{done=document.execCommand('copy');}catch(e){}t.remove();if(done)ok();else window.prompt('انسخ هذا الرابط واحفظه:',url);};
+  try{navigator.clipboard.writeText(url).then(ok,fb);}catch(e){fb();}}
+ return {sync,load,copy};})();
+const P={ids:()=>LEVELS.flatMap(l=>CARDS[l.n].map(c=>c.id)),done:()=>S.done,level:()=>S.level,cur:()=>cur,go:(l,id)=>{S.level=l;cur=id;},save};
+{const _f=show;show=function(...a){const r=_f.apply(this,a);PROG.sync();return r;};}
+document.getElementById('progBtn').onclick=()=>PROG.copy();
+show(PROG.load()||undefined);
 </script></body></html>
