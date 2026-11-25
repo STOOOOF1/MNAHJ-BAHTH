@@ -52,6 +52,7 @@ a{color:inherit}
 .course h2{margin:0;font-size:23px;line-height:1.4;color:var(--c)}
 .course header p{margin:2px 0 0;color:var(--mute);font-size:15px}
 .items{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.items.four{grid-template-columns:repeat(2,1fr)}
 .item{display:flex;flex-direction:column;gap:2px;text-decoration:none;border:1px solid var(--line);border-radius:14px;padding:14px;position:relative;transition:.15s;background:#fff}
 .item:hover{border-color:var(--c);transform:translateY(-3px);box-shadow:var(--shadow)}
 .item.memo{background:#eef6f5;border-color:#c5dfdb}
@@ -72,7 +73,7 @@ footer .by b{color:#f0cf8a}
 .wa svg{width:22px;height:22px}
 .count{display:block;margin:18px auto 0;font-size:15px;letter-spacing:1px;color:#9fc2bd;min-height:1em}
 .top{display:none;position:fixed;bottom:16px;left:16px;background:var(--teal);color:#fff;text-decoration:none;border-radius:999px;padding:8px 14px;font-size:14px;box-shadow:0 4px 14px rgba(0,0,0,.2);z-index:9}
-@media(max-width:760px){.steps{grid-template-columns:1fr}.toc{grid-template-columns:1fr 1fr}.items{grid-template-columns:1fr}
+@media(max-width:760px){.steps{grid-template-columns:1fr}.toc{grid-template-columns:1fr 1fr}.items,.items.four{grid-template-columns:1fr}
 .item{flex-direction:row;flex-wrap:wrap;align-items:center;gap:2px 10px;padding:12px 14px}
 .item .ic{font-size:24px}.item small{flex-basis:100%;order:3}.item .b{order:4;margin-top:4px}.item .st{top:12px}}
 @media(max-width:400px){.toc{grid-template-columns:1fr}}
@@ -113,12 +114,13 @@ footer .by b{color:#f0cf8a}
 <a class="repo" href="https://github.com/STOOOOF1/MNAHJ-BAHTH" target="_blank" rel="noopener">المستودع على GitHub ↗</a>
 </section>
 <section class="course" id="c2" style="--c:#7a3e9d">
-<header><span class="num">٢</span><div><h2>التمويل الإسلامي والمصارف الإسلامية</h2><p>سبعة دروس: المقدمات، المصارف، المرابحة والتورق، الإيجار التمويلي، السلم، الاستصناع، البطاقات</p></div></header>
-<div class="items">
-<a class="item memo" href="https://raw.githubusercontent.com/STOOOOF1/tamWmasaref/HEAD/files/%D9%85%D8%B0%D9%83%D8%B1%D8%A9-%D8%A7%D9%84%D8%AA%D9%85%D9%88%D9%8A%D9%84-%D8%A7%D9%84%D8%A5%D8%B3%D9%84%D8%A7%D9%85%D9%8A-%D8%A7%D9%84%D9%85%D8%AF%D9%85%D8%AC%D8%A9.pdf" download target="_blank" rel="noopener"><span class="ic">📘</span><span class="st">١</span><strong>المذكرة</strong><small>PDF · 18 صفحة · الدروس السبعة مدمجة ومعاد تنسيقها، فقارنها بالدروس الأصلية · ⬇ تحميل مباشر</small><em class="b memo">المرجع المعتمد</em></a>
-<a class="item sum" href="https://github.com/STOOOOF1/tamWmasaref/blob/HEAD/files/%D9%85%D9%84%D8%AE%D8%B5-%D8%A7%D9%84%D8%AA%D9%85%D9%88%D9%8A%D9%84-%D8%A7%D9%84%D8%A5%D8%B3%D9%84%D8%A7%D9%85%D9%8A.pdf" target="_blank" rel="noopener"><span class="ic">📝</span><span class="st">٢</span><strong>الملخص</strong><small>PDF · 8 صفحات · جدول جامع للصيغ</small><em class="b ai">ذكاء اصطناعي · يلزم التحقق</em></a>
-<a class="item cards" href="https://stoooof1.github.io/tamWmasaref/sites/cards/" target="_blank" rel="noopener"><span class="ic">🃏</span><span class="st">٣</span><strong>البطاقات</strong><small>100 بطاقة · 4 مستويات</small><em class="b ai">ذكاء اصطناعي · يلزم التحقق</em></a>
-<a class="item extra" href="https://github.com/STOOOOF1/tamWmasaref/blob/HEAD/files/%D9%85%D8%B9%D8%A7%D9%8A%D9%8A%D8%B1-%D8%A3%D9%8A%D9%88%D9%81%D9%8A-%D9%84%D9%84%D9%85%D9%82%D8%B1%D8%B1.pdf" target="_blank" rel="noopener"><span class="ic">📎</span><span class="st">٤</span><strong>مرجع إضافي: معايير أيوفي للمقرر</strong><small>PDF · بنود المعايير وأجوبة تساؤلات المذكرة</small><em class="b ai">ذكاء اصطناعي · يلزم التحقق</em></a>
+<header><span class="num">٢</span><div><h2>التمويل الإسلامي والمصارف الإسلامية</h2><p>عشرة دروس: المقدمات، المصارف، المرابحة والتورق، الإيجار التمويلي، السلم، الاستصناع، البطاقات (درسان)، الحسابات والصناديق الاستثمارية، الصكوك</p></div></header>
+<div class="items four">
+<a class="item memo" href="https://raw.githubusercontent.com/STOOOOF1/tamWmasaref/HEAD/files/%D8%A7%D9%84%D8%AF%D8%B1%D9%88%D8%B3-%D8%A7%D9%84%D8%A3%D8%B5%D9%84%D9%8A%D8%A9.zip" download target="_blank" rel="noopener"><span class="ic">📦</span><span class="st">١</span><strong>الدروس الأصلية</strong><small>ZIP · شرائح الدروس العشرة (PDF) كما وصلت من المقرر · ⬇ تحميل مباشر</small><em class="b memo">الأصل · المرجع</em></a>
+<a class="item sum" href="https://raw.githubusercontent.com/STOOOOF1/tamWmasaref/HEAD/files/%D9%85%D8%B0%D9%83%D8%B1%D8%A9-%D8%A7%D9%84%D8%AA%D9%85%D9%88%D9%8A%D9%84-%D8%A7%D9%84%D8%A5%D8%B3%D9%84%D8%A7%D9%85%D9%8A-%D8%A7%D9%84%D9%85%D8%AF%D9%85%D8%AC%D8%A9.pdf" download target="_blank" rel="noopener"><span class="ic">📘</span><span class="st">٢</span><strong>المذكرة المدمجة</strong><small>PDF · 22 صفحة · الدروس العشرة دمجها الذكاء الاصطناعي، فقارنها بالأصل · ⬇ تحميل مباشر</small><em class="b ai">دمج بالذكاء الاصطناعي · يلزم التحقق</em></a>
+<a class="item sum" href="https://github.com/STOOOOF1/tamWmasaref/blob/HEAD/files/%D9%85%D9%84%D8%AE%D8%B5-%D8%A7%D9%84%D8%AA%D9%85%D9%88%D9%8A%D9%84-%D8%A7%D9%84%D8%A5%D8%B3%D9%84%D8%A7%D9%85%D9%8A.pdf" target="_blank" rel="noopener"><span class="ic">📝</span><span class="st">٣</span><strong>الملخص</strong><small>PDF · 11 صفحة · خريطة ذهنية وجدول جامع للصيغ</small><em class="b ai">ذكاء اصطناعي · يلزم التحقق</em></a>
+<a class="item cards" href="https://stoooof1.github.io/tamWmasaref/sites/cards/" target="_blank" rel="noopener"><span class="ic">🃏</span><span class="st">٤</span><strong>البطاقات</strong><small>121 بطاقة · 4 مستويات · الدروس العشرة</small><em class="b ai">ذكاء اصطناعي · يلزم التحقق</em></a>
+<a class="item extra" href="https://github.com/STOOOOF1/tamWmasaref/blob/HEAD/files/%D9%85%D8%B9%D8%A7%D9%8A%D9%8A%D8%B1-%D8%A3%D9%8A%D9%88%D9%81%D9%8A-%D9%84%D9%84%D9%85%D9%82%D8%B1%D8%B1.pdf" target="_blank" rel="noopener"><span class="ic">📎</span><span class="st">٥</span><strong>مرجع إضافي: معايير أيوفي للمقرر</strong><small>PDF · بنود المعايير وأجوبة تساؤلات الدروس 3–7</small><em class="b ai">ذكاء اصطناعي · يلزم التحقق</em></a>
 </div>
 <a class="repo" href="https://github.com/STOOOOF1/tamWmasaref" target="_blank" rel="noopener">المستودع على GitHub ↗</a>
 </section>
