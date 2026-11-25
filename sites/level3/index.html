@@ -4,125 +4,184 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>مقررات المستوى الثالث — ماجستير الاقتصاد الإسلامي</title>
+<meta name="description" content="المذكرات والملخصات والبطاقات لمقررات المستوى الثالث من ماجستير الاقتصاد الإسلامي بالجامعة الإسلامية بالمدينة المنورة">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#f6f3ec;--card:#fff;--ink:#1f2a2e;--mute:#5d6b70;--line:#e4ddcf;--teal:#0f5c58;--teal2:#e3f0ee;--gold:#a8782a;--gold2:#f7eedb;--warn:#8a3b12;--warn2:#fff4e5}
+:root{--bg:#f5f2ea;--card:#fff;--ink:#1d2629;--mute:#5f6c70;--line:#e6dfd0;--teal:#0f5c58;--gold:#b8892f;--shadow:0 6px 24px rgba(20,40,40,.08)}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;font-family:"Tajawal",sans-serif;background:var(--bg);color:var(--ink);line-height:1.7;font-size:17px}
+body{margin:0;font-family:"Tajawal",sans-serif;background:var(--bg);color:var(--ink);line-height:1.75;font-size:17px}
 a{color:inherit}
-.wrap{max-width:860px;margin:0 auto;padding:0 18px}
-.hero{background:var(--teal);color:#fff;padding:42px 0 30px}
-.hero .kicker{font-size:15px;opacity:.85;margin:0}
-.hero h1{font-size:clamp(26px,5vw,38px);font-weight:800;margin:6px 0 8px;line-height:1.35}
-.hero p{margin:0;opacity:.9}
-.notice{background:var(--warn2);border:2px solid #f0c48a;border-radius:14px;padding:16px 18px;margin:-18px 0 22px;position:relative;color:var(--warn)}
-.notice strong{display:block;font-size:18px;margin-bottom:4px}
-.notice p{margin:0}
-nav.toc .wrap{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
-nav.toc a{text-decoration:none;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px 12px;font-size:15px;font-weight:500;line-height:1.45}
-.top{position:fixed;bottom:16px;left:16px;background:var(--teal);color:#fff;text-decoration:none;border-radius:999px;padding:8px 14px;font-size:14px;box-shadow:0 4px 14px rgba(0,0,0,.18)}
-nav.toc a b{color:var(--teal);margin-left:6px}
-nav.toc a:hover{border-color:var(--teal)}
-.legend{display:flex;flex-wrap:wrap;gap:14px;color:var(--mute);font-size:15px;margin:14px 0 4px}
-.course{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:20px;margin:18px 0;scroll-margin-top:12px}
-.course header{display:flex;gap:14px;align-items:flex-start;margin-bottom:14px}
-.num{flex:0 0 46px;height:46px;border-radius:12px;background:var(--teal);color:#fff;display:grid;place-items:center;font-weight:800;font-size:22px}
-.course h2{margin:0;font-size:22px;line-height:1.4}
+.wrap{max-width:920px;margin:0 auto;padding:0 18px}
+/* الرأس */
+.hero{background:linear-gradient(135deg,#0b4744 0%,#0f5c58 55%,#16756f 100%);color:#fff;padding:46px 0 64px;position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;inset:auto -80px -120px auto;width:320px;height:320px;border-radius:50%;background:radial-gradient(circle,rgba(232,196,120,.35),transparent 70%)}
+.kicker{display:inline-block;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:999px;padding:4px 14px;font-size:14px;margin:0}
+.hero h1{font-size:clamp(28px,6vw,44px);font-weight:800;margin:12px 0 6px;line-height:1.3}
+.hero p.sub{margin:0;opacity:.9;font-size:18px}
+/* التنبيه */
+.notice{display:flex;gap:12px;align-items:flex-start;background:#fff8ec;border:1px solid #f0cf96;border-inline-start:6px solid #d98b1f;border-radius:16px;padding:16px 18px;margin:-36px 0 26px;position:relative;z-index:2;box-shadow:var(--shadow);color:#6b3410}
+.notice .i{font-size:26px;line-height:1}
+.notice strong{display:block;font-size:18px}
+.notice p{margin:2px 0 0}
+/* عناوين الأقسام */
+.h{display:flex;align-items:center;gap:10px;font-size:22px;font-weight:800;margin:34px 0 14px}
+.h::after{content:"";flex:1;height:1px;background:var(--line)}
+/* خطوات المذاكرة */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;counter-reset:s}
+.step{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px;box-shadow:var(--shadow);position:relative}
+.step .t{display:inline-block;font-size:13px;font-weight:700;color:var(--teal);background:#e4f1ef;border-radius:999px;padding:2px 10px;margin-bottom:6px}
+.step h3{margin:0 0 4px;font-size:18px;display:flex;gap:8px;align-items:center}
+.step h3 b{flex:0 0 30px;height:30px;border-radius:50%;background:var(--teal);color:#fff;display:grid;place-items:center;font-size:16px}
+.step p{margin:0;color:var(--mute);font-size:15.5px}
+.tip{margin-top:12px;display:flex;gap:12px;align-items:center;background:linear-gradient(90deg,#fbf3e1,#fff);border:1px dashed #e0c48b;border-radius:16px;padding:14px 16px}
+.tip .i{font-size:28px}
+.tip p{margin:0;font-size:15.5px}
+.tip strong{color:#8a5d12}
+/* الفهرس */
+.toc{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.toc a{display:flex;align-items:center;gap:10px;text-decoration:none;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:10px 12px;font-weight:500;line-height:1.45;transition:.15s;box-shadow:0 2px 8px rgba(0,0,0,.03)}
+.toc a b{flex:0 0 32px;height:32px;border-radius:10px;background:var(--c);color:#fff;display:grid;place-items:center}
+.toc a:hover{border-color:var(--c);transform:translateY(-2px)}
+/* المقررات */
+.course{background:var(--card);border:1px solid var(--line);border-top:5px solid var(--c);border-radius:18px;padding:20px;margin:18px 0;scroll-margin-top:14px;box-shadow:var(--shadow)}
+.course header{display:flex;gap:14px;align-items:flex-start;margin-bottom:16px}
+.num{flex:0 0 48px;height:48px;border-radius:14px;background:var(--c);color:#fff;display:grid;place-items:center;font-weight:800;font-size:22px}
+.course h2{margin:0;font-size:23px;line-height:1.4;color:var(--c)}
 .course header p{margin:2px 0 0;color:var(--mute);font-size:15px}
-.links{display:grid;gap:10px}
-.lnk{display:flex;align-items:center;gap:12px;text-decoration:none;border:1px solid var(--line);border-radius:12px;padding:12px 14px;transition:.15s}
-.lnk:hover{transform:translateX(-3px);border-color:var(--teal)}
-.lnk.memo{background:var(--teal2);border-color:#bcd9d5}
-.lnk .n{flex:0 0 30px;height:30px;border-radius:50%;background:#fff;border:1px solid var(--line);display:grid;place-items:center;font-weight:700;color:var(--teal)}
-.lnk .tx{flex:1;display:flex;flex-direction:column;min-width:0}
-.lnk strong{font-size:18px}
-.lnk small{color:var(--mute);font-size:14px}
-.tag{flex:0 0 auto;font-size:13px;font-weight:700;border-radius:999px;padding:2px 10px}
-.tag.memo{background:var(--teal);color:#fff}
-.tag.ai{background:var(--gold2);color:var(--gold);border:1px solid #ead7ae}
-.ar{color:var(--mute);font-size:20px}
+.items{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.item{display:flex;flex-direction:column;gap:2px;text-decoration:none;border:1px solid var(--line);border-radius:14px;padding:14px;position:relative;transition:.15s;background:#fff}
+.item:hover{border-color:var(--c);transform:translateY(-3px);box-shadow:var(--shadow)}
+.item.memo{background:#eef6f5;border-color:#c5dfdb}
+.item.extra{grid-column:1/-1;flex-direction:row;flex-wrap:wrap;align-items:center;gap:4px 10px}
+.item .ic{font-size:28px;line-height:1.2}
+.item .st{position:absolute;top:10px;left:12px;width:24px;height:24px;border-radius:50%;background:var(--bg);color:var(--mute);font-size:13px;font-weight:700;display:grid;place-items:center}
+.item strong{font-size:19px}
+.item small{color:var(--mute);font-size:14px;line-height:1.55;flex:1}
+.b{font-style:normal;font-size:12.5px;font-weight:700;border-radius:999px;padding:2px 10px;align-self:flex-start;margin-top:6px}
+.b.memo{background:var(--teal);color:#fff}
+.b.ai{background:#fbf1dc;color:#8a5d12;border:1px solid #ecd6a8}
 .repo{display:inline-block;margin-top:12px;font-size:14px;color:var(--mute)}
-footer{text-align:center;color:var(--mute);font-size:14px;padding:26px 0 40px}
-@media(max-width:620px){nav.toc .wrap{grid-template-columns:1fr 1fr}}
-@media(max-width:520px){.course{padding:16px}.lnk{padding:10px 12px;gap:10px}.lnk .tag{display:none}.lnk.ai small::before{content:"ذكاء اصطناعي · ";color:var(--gold);font-weight:700}}
+/* التذييل */
+footer{margin-top:40px;background:#0b4744;color:#e6f0ee;padding:30px 0 34px;text-align:center}
+footer .by{font-size:19px;margin:0 0 12px}
+footer .by b{color:#f0cf8a}
+.wa{display:inline-flex;align-items:center;gap:8px;background:#25d366;color:#fff;text-decoration:none;font-weight:700;border-radius:999px;padding:9px 18px;box-shadow:0 4px 14px rgba(37,211,102,.35)}
+.wa svg{width:22px;height:22px}
+.count{display:block;margin:18px auto 0;font-size:15px;letter-spacing:1px;color:#9fc2bd;min-height:1em}
+.top{display:none;position:fixed;bottom:16px;left:16px;background:var(--teal);color:#fff;text-decoration:none;border-radius:999px;padding:8px 14px;font-size:14px;box-shadow:0 4px 14px rgba(0,0,0,.2);z-index:9}
+@media(max-width:760px){.steps{grid-template-columns:1fr}.toc{grid-template-columns:1fr 1fr}.items{grid-template-columns:1fr}
+.item{flex-direction:row;flex-wrap:wrap;align-items:center;gap:2px 10px;padding:12px 14px}
+.item .ic{font-size:24px}.item small{flex-basis:100%;order:3}.item .b{order:4;margin-top:4px}.item .st{top:12px}}
+@media(max-width:400px){.toc{grid-template-columns:1fr}}
+.top.on{display:block}
 </style>
 </head>
 <body>
 <div class="hero"><div class="wrap">
 <p class="kicker">الجامعة الإسلامية بالمدينة المنورة · ماجستير الاقتصاد الإسلامي</p>
 <h1>مقررات المستوى الثالث</h1>
-<p>ستة مقررات، ولكل مقرر: المذكرة المعتمدة، ثم الملخص، ثم البطاقات.</p>
+<p class="sub">ستة مقررات، ولكل مقرر: المذكرة المعتمدة، ثم الملخص، ثم البطاقات.</p>
 </div></div>
-<div class="wrap">
-<div class="notice" role="note">
-<strong>⚠️ تنبيه مهم قبل الاستخدام</strong>
-<p>كل ما في هذه الصفحة من ملخصات وبطاقات وغيرها أُعدّ عبر نماذج الذكاء الاصطناعي، ولم تتقدّم مراجعته ولا تدقيقه. والتحقق منه مطلوب من الطالب، مع مطابقة النتائج بالمذكرات المعتمدة، والمرجع عند أي اختلاف هو المذكرة المعتمدة.</p>
-</div>
-</div>
-<nav class="toc" id="toc" aria-label="المقررات"><div class="wrap"><a href="#c1"><b>١</b>مناهج البحث الاقتصادي</a><a href="#c2"><b>٢</b>التمويل الإسلامي والمصارف الإسلامية</a><a href="#c3"><b>٣</b>الأسواق المالية</a><a href="#c4"><b>٤</b>التنمية والتخطيط الاقتصادي</a><a href="#c5"><b>٥</b>اقتصاديات الوقف والعمل الخيري</a><a href="#c6"><b>٦</b>قواعد الفقه المالي ومقاصده</a></div></nav>
+
 <main class="wrap">
-<div class="legend"><span><span class="tag memo">المرجع</span> المذكرة: ابدأ بها</span><span><span class="tag ai">ذكاء اصطناعي</span> للمراجعة فقط، ويلزم التحقق منه</span></div>
-<section class="course" id="c1">
+<div class="notice" role="note"><span class="i">⚠️</span><div>
+<strong>تنبيه مهم قبل الاستخدام</strong>
+<p>كل ما في هذه الصفحة من ملخصات وبطاقات وغيرها أُعدّ عبر نماذج الذكاء الاصطناعي، ولم تتقدّم مراجعته ولا تدقيقه. والتحقق منه مطلوب من الطالب، مع مطابقة النتائج بالمذكرات المعتمدة، والمرجع عند أي اختلاف هو المذكرة المعتمدة.</p>
+</div></div>
+
+<h2 class="h">🧭 طريقة مقترحة للمذاكرة</h2>
+<div class="steps">
+<div class="step"><span class="t">⏱ ساعة واحدة</span><h3><b>١</b>الصورة الكاملة</h3><p>اقرأ الملخص من أوله إلى آخره في جلسة واحدة، لترسم في ذهنك خريطة المقرر قبل الدخول في تفاصيله.</p></div>
+<div class="step"><span class="t">⏱ نحو ٥ ساعات</span><h3><b>٢</b>القراءة المتأنية</h3><p>اقرأ المذكرة المعتمدة كاملة، وقسّم الساعات على فترات يومك بما يناسبك، فهي الأصل الذي يُعتمد عليه.</p></div>
+<div class="step"><span class="t">⏱ جلسة مراجعة</span><h3><b>٣</b>التثبيت والتصحيح</h3><p>عُد إلى الملخص مرة ثانية بعد قراءة المذكرة، وصحّح فيه كل ما يخالفها أو ينقص عنها.</p></div>
+</div>
+<div class="tip"><span class="i">🃏</span><p><strong>والبطاقات رفيقك في الأوقات البينية:</strong> في الانتظار والمواعيد والتنقّل وأنت راكب، بطاقات قليلة متكررة تثبّت المعلومة دون أن تحتاج إلى جلسة مذاكرة. (لا تستعملها وأنت تقود.)</p></div>
+
+<h2 class="h">📚 المقررات</h2>
+<nav class="toc" id="toc" aria-label="المقررات"><a href="#c1" style="--c:#0f5c58"><b>١</b><span>مناهج البحث الاقتصادي</span></a><a href="#c2" style="--c:#7a3e9d"><b>٢</b><span>التمويل الإسلامي والمصارف الإسلامية</span></a><a href="#c3" style="--c:#b5651d"><b>٣</b><span>الأسواق المالية</span></a><a href="#c4" style="--c:#1f6fb2"><b>٤</b><span>التنمية والتخطيط الاقتصادي</span></a><a href="#c5" style="--c:#2e7d4f"><b>٥</b><span>اقتصاديات الوقف والعمل الخيري</span></a><a href="#c6" style="--c:#9c2f45"><b>٦</b><span>قواعد الفقه المالي ومقاصده</span></a></nav>
+
+<section class="course" id="c1" style="--c:#0f5c58">
 <header><span class="num">١</span><div><h2>مناهج البحث الاقتصادي</h2><p>المذكرة: جمع وإعداد د. عبد السلام أحمد سومر</p></div></header>
-<div class="links">
-<a class="lnk memo" href="https://github.com/STOOOOF1/MNAHJ-BAHTH/blob/HEAD/files/%D9%85%D8%B0%D9%83%D8%B1%D8%A9-%D9%85%D9%86%D8%A7%D9%87%D8%AC-%D8%A7%D9%84%D8%A8%D8%AD%D8%AB-%D8%A7%D9%84%D8%A7%D9%82%D8%AA%D8%B5%D8%A7%D8%AF%D9%8A.pdf" target="_blank" rel="noopener"><span class="n">١</span><span class="tx"><strong>المذكرة المعتمدة</strong><small>PDF · 99 صفحة</small></span><span class="tag memo">المرجع</span><span class="ar">←</span></a>
-<a class="lnk ai" href="https://github.com/STOOOOF1/MNAHJ-BAHTH/blob/HEAD/files/%D9%85%D9%84%D8%AE%D8%B5-%D9%85%D9%86%D8%A7%D9%87%D8%AC-%D8%A7%D9%84%D8%A8%D8%AD%D8%AB-%D8%A7%D9%84%D8%A7%D9%82%D8%AA%D8%B5%D8%A7%D8%AF%D9%8A.pdf" target="_blank" rel="noopener"><span class="n">٢</span><span class="tx"><strong>الملخص</strong><small>PDF · 10 صفحات · خرائط ذهنية وجداول</small></span><span class="tag ai">ذكاء اصطناعي</span><span class="ar">←</span></a>
-<a class="lnk ai" href="https://stoooof1.github.io/MNAHJ-BAHTH/sites/cards/" target="_blank" rel="noopener"><span class="n">٣</span><span class="tx"><strong>البطاقات</strong><small>100 بطاقة · 4 مستويات</small></span><span class="tag ai">ذكاء اصطناعي</span><span class="ar">←</span></a>
+<div class="items">
+<a class="item memo" href="https://github.com/STOOOOF1/MNAHJ-BAHTH/blob/HEAD/files/%D9%85%D8%B0%D9%83%D8%B1%D8%A9-%D9%85%D9%86%D8%A7%D9%87%D8%AC-%D8%A7%D9%84%D8%A8%D8%AD%D8%AB-%D8%A7%D9%84%D8%A7%D9%82%D8%AA%D8%B5%D8%A7%D8%AF%D9%8A.pdf" target="_blank" rel="noopener"><span class="ic">📘</span><span class="st">١</span><strong>المذكرة المعتمدة</strong><small>PDF · 99 صفحة</small><em class="b memo">المرجع المعتمد</em></a>
+<a class="item sum" href="https://github.com/STOOOOF1/MNAHJ-BAHTH/blob/HEAD/files/%D9%85%D9%84%D8%AE%D8%B5-%D9%85%D9%86%D8%A7%D9%87%D8%AC-%D8%A7%D9%84%D8%A8%D8%AD%D8%AB-%D8%A7%D9%84%D8%A7%D9%82%D8%AA%D8%B5%D8%A7%D8%AF%D9%8A.pdf" target="_blank" rel="noopener"><span class="ic">📝</span><span class="st">٢</span><strong>الملخص</strong><small>PDF · 10 صفحات · خرائط ذهنية وجداول</small><em class="b ai">ذكاء اصطناعي · يلزم التحقق</em></a>
+<a class="item cards" href="https://stoooof1.github.io/MNAHJ-BAHTH/sites/cards/" target="_blank" rel="noopener"><span class="ic">🃏</span><span class="st">٣</span><strong>البطاقات</strong><small>100 بطاقة · 4 مستويات</small><em class="b ai">ذكاء اصطناعي · يلزم التحقق</em></a>
 </div>
-<a class="repo" href="https://github.com/STOOOOF1/MNAHJ-BAHTH" target="_blank" rel="noopener">المستودع على GitHub: MNAHJ-BAHTH</a>
+<a class="repo" href="https://github.com/STOOOOF1/MNAHJ-BAHTH" target="_blank" rel="noopener">المستودع على GitHub ↗</a>
 </section>
-<section class="course" id="c2">
+<section class="course" id="c2" style="--c:#7a3e9d">
 <header><span class="num">٢</span><div><h2>التمويل الإسلامي والمصارف الإسلامية</h2><p>سبعة دروس: المقدمات، المصارف، المرابحة والتورق، الإيجار التمويلي، السلم، الاستصناع، البطاقات</p></div></header>
-<div class="links">
-<a class="lnk memo" href="https://github.com/STOOOOF1/tamWmasaref/blob/HEAD/files/%D9%85%D8%B0%D9%83%D8%B1%D8%A9-%D8%A7%D9%84%D8%AA%D9%85%D9%88%D9%8A%D9%84-%D8%A7%D9%84%D8%A5%D8%B3%D9%84%D8%A7%D9%85%D9%8A-%D8%A7%D9%84%D9%85%D8%AF%D9%85%D8%AC%D8%A9.pdf" target="_blank" rel="noopener"><span class="n">١</span><span class="tx"><strong>المذكرة</strong><small>PDF · 18 صفحة · الدروس السبعة مدمجة ومعاد تنسيقها، فقارنها بالدروس الأصلية</small></span><span class="tag memo">المرجع</span><span class="ar">←</span></a>
-<a class="lnk ai" href="https://github.com/STOOOOF1/tamWmasaref/blob/HEAD/files/%D9%85%D9%84%D8%AE%D8%B5-%D8%A7%D9%84%D8%AA%D9%85%D9%88%D9%8A%D9%84-%D8%A7%D9%84%D8%A5%D8%B3%D9%84%D8%A7%D9%85%D9%8A.pdf" target="_blank" rel="noopener"><span class="n">٢</span><span class="tx"><strong>الملخص</strong><small>PDF · 8 صفحات · جدول جامع للصيغ</small></span><span class="tag ai">ذكاء اصطناعي</span><span class="ar">←</span></a>
-<a class="lnk ai" href="https://stoooof1.github.io/tamWmasaref/sites/cards/" target="_blank" rel="noopener"><span class="n">٣</span><span class="tx"><strong>البطاقات</strong><small>100 بطاقة · 4 مستويات</small></span><span class="tag ai">ذكاء اصطناعي</span><span class="ar">←</span></a>
-<a class="lnk ai" href="https://github.com/STOOOOF1/tamWmasaref/blob/HEAD/files/%D9%85%D8%B9%D8%A7%D9%8A%D9%8A%D8%B1-%D8%A3%D9%8A%D9%88%D9%81%D9%8A-%D9%84%D9%84%D9%85%D9%82%D8%B1%D8%B1.pdf" target="_blank" rel="noopener"><span class="n">٤</span><span class="tx"><strong>مرجع إضافي: معايير أيوفي للمقرر</strong><small>PDF · بنود المعايير وأجوبة تساؤلات المذكرة</small></span><span class="tag ai">ذكاء اصطناعي</span><span class="ar">←</span></a>
+<div class="items">
+<a class="item memo" href="https://github.com/STOOOOF1/tamWmasaref/blob/HEAD/files/%D9%85%D8%B0%D9%83%D8%B1%D8%A9-%D8%A7%D9%84%D8%AA%D9%85%D9%88%D9%8A%D9%84-%D8%A7%D9%84%D8%A5%D8%B3%D9%84%D8%A7%D9%85%D9%8A-%D8%A7%D9%84%D9%85%D8%AF%D9%85%D8%AC%D8%A9.pdf" target="_blank" rel="noopener"><span class="ic">📘</span><span class="st">١</span><strong>المذكرة</strong><small>PDF · 18 صفحة · الدروس السبعة مدمجة ومعاد تنسيقها، فقارنها بالدروس الأصلية</small><em class="b memo">المرجع المعتمد</em></a>
+<a class="item sum" href="https://github.com/STOOOOF1/tamWmasaref/blob/HEAD/files/%D9%85%D9%84%D8%AE%D8%B5-%D8%A7%D9%84%D8%AA%D9%85%D9%88%D9%8A%D9%84-%D8%A7%D9%84%D8%A5%D8%B3%D9%84%D8%A7%D9%85%D9%8A.pdf" target="_blank" rel="noopener"><span class="ic">📝</span><span class="st">٢</span><strong>الملخص</strong><small>PDF · 8 صفحات · جدول جامع للصيغ</small><em class="b ai">ذكاء اصطناعي · يلزم التحقق</em></a>
+<a class="item cards" href="https://stoooof1.github.io/tamWmasaref/sites/cards/" target="_blank" rel="noopener"><span class="ic">🃏</span><span class="st">٣</span><strong>البطاقات</strong><small>100 بطاقة · 4 مستويات</small><em class="b ai">ذكاء اصطناعي · يلزم التحقق</em></a>
+<a class="item extra" href="https://github.com/STOOOOF1/tamWmasaref/blob/HEAD/files/%D9%85%D8%B9%D8%A7%D9%8A%D9%8A%D8%B1-%D8%A3%D9%8A%D9%88%D9%81%D9%8A-%D9%84%D9%84%D9%85%D9%82%D8%B1%D8%B1.pdf" target="_blank" rel="noopener"><span class="ic">📎</span><span class="st">٤</span><strong>مرجع إضافي: معايير أيوفي للمقرر</strong><small>PDF · بنود المعايير وأجوبة تساؤلات المذكرة</small><em class="b ai">ذكاء اصطناعي · يلزم التحقق</em></a>
 </div>
-<a class="repo" href="https://github.com/STOOOOF1/tamWmasaref" target="_blank" rel="noopener">المستودع على GitHub: tamWmasaref</a>
+<a class="repo" href="https://github.com/STOOOOF1/tamWmasaref" target="_blank" rel="noopener">المستودع على GitHub ↗</a>
 </section>
-<section class="course" id="c3">
+<section class="course" id="c3" style="--c:#b5651d">
 <header><span class="num">٣</span><div><h2>الأسواق المالية</h2><p>المذكرة: إعداد الطلاب زيد العوفي وعبدالرحمن الأحمدي وعبدالله الذبياني، مقدمة إلى د. فارس العلوني (1448هـ)</p></div></header>
-<div class="links">
-<a class="lnk memo" href="https://github.com/STOOOOF1/aswaq-maliyaah/blob/HEAD/files/%D9%85%D8%B0%D9%83%D8%B1%D8%A9-%D8%A7%D9%84%D8%A3%D8%B3%D9%88%D8%A7%D9%82-%D8%A7%D9%84%D9%85%D8%A7%D9%84%D9%8A%D8%A9.pdf" target="_blank" rel="noopener"><span class="n">١</span><span class="tx"><strong>المذكرة المعتمدة</strong><small>PDF · 30 صفحة</small></span><span class="tag memo">المرجع</span><span class="ar">←</span></a>
-<a class="lnk ai" href="https://github.com/STOOOOF1/aswaq-maliyaah/blob/HEAD/files/mulakhas-aswaq-maliyaah.pdf" target="_blank" rel="noopener"><span class="n">٢</span><span class="tx"><strong>الملخص</strong><small>PDF · 10 صفحات · خلاصة الأحكام</small></span><span class="tag ai">ذكاء اصطناعي</span><span class="ar">←</span></a>
-<a class="lnk ai" href="https://stoooof1.github.io/aswaq-maliyaah/sites/cards/" target="_blank" rel="noopener"><span class="n">٣</span><span class="tx"><strong>البطاقات</strong><small>100 بطاقة · 4 مستويات</small></span><span class="tag ai">ذكاء اصطناعي</span><span class="ar">←</span></a>
+<div class="items">
+<a class="item memo" href="https://github.com/STOOOOF1/aswaq-maliyaah/blob/HEAD/files/%D9%85%D8%B0%D9%83%D8%B1%D8%A9-%D8%A7%D9%84%D8%A3%D8%B3%D9%88%D8%A7%D9%82-%D8%A7%D9%84%D9%85%D8%A7%D9%84%D9%8A%D8%A9.pdf" target="_blank" rel="noopener"><span class="ic">📘</span><span class="st">١</span><strong>المذكرة المعتمدة</strong><small>PDF · 30 صفحة</small><em class="b memo">المرجع المعتمد</em></a>
+<a class="item sum" href="https://github.com/STOOOOF1/aswaq-maliyaah/blob/HEAD/files/mulakhas-aswaq-maliyaah.pdf" target="_blank" rel="noopener"><span class="ic">📝</span><span class="st">٢</span><strong>الملخص</strong><small>PDF · 10 صفحات · خلاصة الأحكام</small><em class="b ai">ذكاء اصطناعي · يلزم التحقق</em></a>
+<a class="item cards" href="https://stoooof1.github.io/aswaq-maliyaah/sites/cards/" target="_blank" rel="noopener"><span class="ic">🃏</span><span class="st">٣</span><strong>البطاقات</strong><small>100 بطاقة · 4 مستويات</small><em class="b ai">ذكاء اصطناعي · يلزم التحقق</em></a>
 </div>
-<a class="repo" href="https://github.com/STOOOOF1/aswaq-maliyaah" target="_blank" rel="noopener">المستودع على GitHub: aswaq-maliyaah</a>
+<a class="repo" href="https://github.com/STOOOOF1/aswaq-maliyaah" target="_blank" rel="noopener">المستودع على GitHub ↗</a>
 </section>
-<section class="course" id="c4">
+<section class="course" id="c4" style="--c:#1f6fb2">
 <header><span class="num">٤</span><div><h2>التنمية والتخطيط الاقتصادي</h2><p>المذكرة: إعداد طلاب الدفعة 1447هـ، إشراف د. أسامة الحجيلي</p></div></header>
-<div class="links">
-<a class="lnk memo" href="https://github.com/STOOOOF1/TANMYAH/blob/HEAD/files/%D9%85%D8%B0%D9%83%D8%B1%D8%A9-%D8%A7%D9%84%D8%AA%D9%86%D9%85%D9%8A%D8%A9-%D9%88%D8%A7%D9%84%D8%AA%D8%AE%D8%B7%D9%8A%D8%B7-%D8%A7%D9%84%D8%A7%D9%82%D8%AA%D8%B5%D8%A7%D8%AF%D9%8A.pdf" target="_blank" rel="noopener"><span class="n">١</span><span class="tx"><strong>المذكرة المعتمدة</strong><small>PDF · 26 صفحة</small></span><span class="tag memo">المرجع</span><span class="ar">←</span></a>
-<a class="lnk ai" href="https://github.com/STOOOOF1/TANMYAH/blob/HEAD/files/tanmiya-summary.pdf" target="_blank" rel="noopener"><span class="n">٢</span><span class="tx"><strong>الملخص</strong><small>PDF · 10 صفحات · الفصول الخمسة عشر</small></span><span class="tag ai">ذكاء اصطناعي</span><span class="ar">←</span></a>
-<a class="lnk ai" href="https://stoooof1.github.io/TANMYAH/sites/cards/" target="_blank" rel="noopener"><span class="n">٣</span><span class="tx"><strong>البطاقات</strong><small>100 بطاقة · 4 مستويات</small></span><span class="tag ai">ذكاء اصطناعي</span><span class="ar">←</span></a>
+<div class="items">
+<a class="item memo" href="https://github.com/STOOOOF1/TANMYAH/blob/HEAD/files/%D9%85%D8%B0%D9%83%D8%B1%D8%A9-%D8%A7%D9%84%D8%AA%D9%86%D9%85%D9%8A%D8%A9-%D9%88%D8%A7%D9%84%D8%AA%D8%AE%D8%B7%D9%8A%D8%B7-%D8%A7%D9%84%D8%A7%D9%82%D8%AA%D8%B5%D8%A7%D8%AF%D9%8A.pdf" target="_blank" rel="noopener"><span class="ic">📘</span><span class="st">١</span><strong>المذكرة المعتمدة</strong><small>PDF · 26 صفحة</small><em class="b memo">المرجع المعتمد</em></a>
+<a class="item sum" href="https://github.com/STOOOOF1/TANMYAH/blob/HEAD/files/tanmiya-summary.pdf" target="_blank" rel="noopener"><span class="ic">📝</span><span class="st">٢</span><strong>الملخص</strong><small>PDF · 10 صفحات · الفصول الخمسة عشر</small><em class="b ai">ذكاء اصطناعي · يلزم التحقق</em></a>
+<a class="item cards" href="https://stoooof1.github.io/TANMYAH/sites/cards/" target="_blank" rel="noopener"><span class="ic">🃏</span><span class="st">٣</span><strong>البطاقات</strong><small>100 بطاقة · 4 مستويات</small><em class="b ai">ذكاء اصطناعي · يلزم التحقق</em></a>
 </div>
-<a class="repo" href="https://github.com/STOOOOF1/TANMYAH" target="_blank" rel="noopener">المستودع على GitHub: TANMYAH</a>
+<a class="repo" href="https://github.com/STOOOOF1/TANMYAH" target="_blank" rel="noopener">المستودع على GitHub ↗</a>
 </section>
-<section class="course" id="c5">
+<section class="course" id="c5" style="--c:#2e7d4f">
 <header><span class="num">٥</span><div><h2>اقتصاديات الوقف والعمل الخيري</h2><p>المذكرة في المستودع نص فقط (لا توجد نسخة PDF)، وفيها ثلاثون سؤالًا وجوابًا</p></div></header>
-<div class="links">
-<a class="lnk memo" href="https://github.com/STOOOOF1/waqft3/blob/HEAD/files/%D9%85%D8%B0%D9%83%D8%B1%D8%A9-%D8%A7%D9%82%D8%AA%D8%B5%D8%A7%D8%AF%D9%8A%D8%A7%D8%AA-%D8%A7%D9%84%D9%88%D9%82%D9%81.txt" target="_blank" rel="noopener"><span class="n">١</span><span class="tx"><strong>المذكرة المعتمدة</strong><small>نص المذكرة · ملف نصي</small></span><span class="tag memo">المرجع</span><span class="ar">←</span></a>
-<a class="lnk ai" href="https://github.com/STOOOOF1/waqft3/blob/HEAD/files/waqf-summary.pdf" target="_blank" rel="noopener"><span class="n">٢</span><span class="tx"><strong>الملخص</strong><small>PDF · 10 صفحات</small></span><span class="tag ai">ذكاء اصطناعي</span><span class="ar">←</span></a>
-<a class="lnk ai" href="https://stoooof1.github.io/waqft3/sites/cards/" target="_blank" rel="noopener"><span class="n">٣</span><span class="tx"><strong>البطاقات</strong><small>100 بطاقة · 4 مستويات</small></span><span class="tag ai">ذكاء اصطناعي</span><span class="ar">←</span></a>
+<div class="items">
+<a class="item memo" href="https://github.com/STOOOOF1/waqft3/blob/HEAD/files/%D9%85%D8%B0%D9%83%D8%B1%D8%A9-%D8%A7%D9%82%D8%AA%D8%B5%D8%A7%D8%AF%D9%8A%D8%A7%D8%AA-%D8%A7%D9%84%D9%88%D9%82%D9%81.txt" target="_blank" rel="noopener"><span class="ic">📘</span><span class="st">١</span><strong>المذكرة المعتمدة</strong><small>نص المذكرة · ملف نصي</small><em class="b memo">المرجع المعتمد</em></a>
+<a class="item sum" href="https://github.com/STOOOOF1/waqft3/blob/HEAD/files/waqf-summary.pdf" target="_blank" rel="noopener"><span class="ic">📝</span><span class="st">٢</span><strong>الملخص</strong><small>PDF · 10 صفحات</small><em class="b ai">ذكاء اصطناعي · يلزم التحقق</em></a>
+<a class="item cards" href="https://stoooof1.github.io/waqft3/sites/cards/" target="_blank" rel="noopener"><span class="ic">🃏</span><span class="st">٣</span><strong>البطاقات</strong><small>100 بطاقة · 4 مستويات</small><em class="b ai">ذكاء اصطناعي · يلزم التحقق</em></a>
 </div>
-<a class="repo" href="https://github.com/STOOOOF1/waqft3" target="_blank" rel="noopener">المستودع على GitHub: waqft3</a>
+<a class="repo" href="https://github.com/STOOOOF1/waqft3" target="_blank" rel="noopener">المستودع على GitHub ↗</a>
 </section>
-<section class="course" id="c6">
+<section class="course" id="c6" style="--c:#9c2f45">
 <header><span class="num">٦</span><div><h2>قواعد الفقه المالي ومقاصده</h2><p>المذكرة: إعداد طلاب الدراسات العليا، إشراف د. حامد مزيد الحربي (1447هـ)</p></div></header>
-<div class="links">
-<a class="lnk memo" href="https://github.com/STOOOOF1/QWA3DALFEQHALMALY/blob/HEAD/files/%D9%85%D8%B0%D9%83%D8%B1%D8%A9-%D9%82%D9%88%D8%A7%D8%B9%D8%AF-%D8%A7%D9%84%D9%81%D9%82%D9%87-%D8%A7%D9%84%D9%85%D8%A7%D9%84%D9%8A-%D9%88%D9%85%D9%82%D8%A7%D8%B5%D8%AF%D9%87.pdf" target="_blank" rel="noopener"><span class="n">١</span><span class="tx"><strong>المذكرة المعتمدة</strong><small>PDF · 85 صفحة</small></span><span class="tag memo">المرجع</span><span class="ar">←</span></a>
-<a class="lnk ai" href="https://github.com/STOOOOF1/QWA3DALFEQHALMALY/blob/HEAD/files/%D9%85%D9%84%D8%AE%D8%B5-%D9%82%D9%88%D8%A7%D8%B9%D8%AF-%D8%A7%D9%84%D9%81%D9%82%D9%87-%D8%A7%D9%84%D9%85%D8%A7%D9%84%D9%8A-%D9%88%D9%85%D9%82%D8%A7%D8%B5%D8%AF%D9%87.pdf" target="_blank" rel="noopener"><span class="n">٢</span><span class="tx"><strong>الملخص</strong><small>PDF · 10 صفحات · خرائط ذهنية ومقارنات</small></span><span class="tag ai">ذكاء اصطناعي</span><span class="ar">←</span></a>
-<a class="lnk ai" href="https://stoooof1.github.io/QWA3DALFEQHALMALY/sites/cards/" target="_blank" rel="noopener"><span class="n">٣</span><span class="tx"><strong>البطاقات</strong><small>100 بطاقة · 4 مستويات</small></span><span class="tag ai">ذكاء اصطناعي</span><span class="ar">←</span></a>
+<div class="items">
+<a class="item memo" href="https://github.com/STOOOOF1/QWA3DALFEQHALMALY/blob/HEAD/files/%D9%85%D8%B0%D9%83%D8%B1%D8%A9-%D9%82%D9%88%D8%A7%D8%B9%D8%AF-%D8%A7%D9%84%D9%81%D9%82%D9%87-%D8%A7%D9%84%D9%85%D8%A7%D9%84%D9%8A-%D9%88%D9%85%D9%82%D8%A7%D8%B5%D8%AF%D9%87.pdf" target="_blank" rel="noopener"><span class="ic">📘</span><span class="st">١</span><strong>المذكرة المعتمدة</strong><small>PDF · 85 صفحة</small><em class="b memo">المرجع المعتمد</em></a>
+<a class="item sum" href="https://github.com/STOOOOF1/QWA3DALFEQHALMALY/blob/HEAD/files/%D9%85%D9%84%D8%AE%D8%B5-%D9%82%D9%88%D8%A7%D8%B9%D8%AF-%D8%A7%D9%84%D9%81%D9%82%D9%87-%D8%A7%D9%84%D9%85%D8%A7%D9%84%D9%8A-%D9%88%D9%85%D9%82%D8%A7%D8%B5%D8%AF%D9%87.pdf" target="_blank" rel="noopener"><span class="ic">📝</span><span class="st">٢</span><strong>الملخص</strong><small>PDF · 10 صفحات · خرائط ذهنية ومقارنات</small><em class="b ai">ذكاء اصطناعي · يلزم التحقق</em></a>
+<a class="item cards" href="https://stoooof1.github.io/QWA3DALFEQHALMALY/sites/cards/" target="_blank" rel="noopener"><span class="ic">🃏</span><span class="st">٣</span><strong>البطاقات</strong><small>100 بطاقة · 4 مستويات</small><em class="b ai">ذكاء اصطناعي · يلزم التحقق</em></a>
 </div>
-<a class="repo" href="https://github.com/STOOOOF1/QWA3DALFEQHALMALY" target="_blank" rel="noopener">المستودع على GitHub: QWA3DALFEQHALMALY</a>
+<a class="repo" href="https://github.com/STOOOOF1/QWA3DALFEQHALMALY" target="_blank" rel="noopener">المستودع على GitHub ↗</a>
 </section>
 
 </main>
-<footer>البطاقات تحفظ تقدّمك في متصفحك، والمستويات كلها مفتوحة.</footer>
+
+<footer>
+<p class="by">إعداد أخوكم <b>مصطفى الزراق</b></p>
+<a class="wa" href="https://wa.me/966552721966" target="_blank" rel="noopener" aria-label="تواصل عبر واتساب">
+<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2zm0 18.15c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24 4.54 0 8.24 3.7 8.24 8.24 0 4.55-3.7 8.24-8.24 8.24zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.17.25-.64.81-.78.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.14.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.23.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.11-.22-.17-.47-.29z"/></svg>
+تواصل عبر واتساب</a>
+<span class="count" id="count" aria-hidden="true"></span>
+</footer>
 <a class="top" href="#toc">↑ المقررات</a>
+<script>
+(function(){var t=document.querySelector('.top');addEventListener('scroll',function(){t.classList.toggle('on',scrollY>1100)},{passive:true});})();
+(function(){
+  var el=document.getElementById("count");
+  function show(n){ if(typeof n==="number"&&n>=0){ el.textContent=n.toLocaleString("ar-SA"); } }
+  fetch("https://api.counterapi.dev/v1/stoooof1-mnahj-bahth/level3/up")
+    .then(function(r){ if(!r.ok) throw 0; return r.json(); })
+    .then(function(d){ show(d.count); })
+    .catch(function(){
+      fetch("https://abacus.jasoncameron.dev/hit/stoooof1-mnahj-bahth/level3")
+        .then(function(r){ return r.json(); }).then(function(d){ show(d.value); }).catch(function(){});
+    });
+})();
+</script>
 </body>
 </html>
