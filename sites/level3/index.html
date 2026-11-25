@@ -78,6 +78,36 @@ footer .by b{color:#f0cf8a}
 .item .ic{font-size:24px}.item small{flex-basis:100%;order:3}.item .b{order:4;margin-top:4px}.item .st{top:12px}}
 @media(max-width:400px){.toc{grid-template-columns:1fr}}
 .top.on{display:block}
+/* جدول الاختبارات */
+.exbtn{display:flex;align-items:center;gap:14px;width:100%;text-align:right;font:inherit;cursor:pointer;background:var(--card);border:2px solid var(--teal);border-radius:18px;padding:14px 18px;margin:0 0 8px;box-shadow:var(--shadow);color:var(--ink);transition:.15s}
+.exbtn:hover{transform:translateY(-2px)}
+.exbtn .ic{flex:0 0 56px;height:56px;border-radius:16px;background:var(--teal);color:#fff;display:grid;place-items:center;font-size:30px}
+.exbtn .tx{flex:1;display:flex;flex-direction:column;line-height:1.5}
+.exbtn strong{font-size:20px;color:var(--teal)}
+.exbtn small{color:var(--mute);font-size:15px}
+.exbtn small b{color:var(--ink)}
+.exbtn .go{font-size:14px;font-weight:700;color:#fff;background:var(--gold);border-radius:999px;padding:5px 14px;white-space:nowrap}
+dialog.ex{border:0;border-radius:20px;padding:0;max-width:880px;width:calc(100% - 24px);box-shadow:0 20px 60px rgba(0,0,0,.3);color:var(--ink)}
+dialog.ex::backdrop{background:rgba(10,30,30,.55)}
+.ex .hd{display:flex;align-items:center;gap:10px;background:var(--teal);color:#fff;padding:14px 18px}
+.ex .hd h3{margin:0;font-size:20px;flex:1}
+.ex .hd button{font:inherit;background:rgba(255,255,255,.15);color:#fff;border:0;border-radius:999px;padding:4px 14px;cursor:pointer}
+.ex .bd{padding:14px 16px 18px;overflow-x:auto}
+.ex .meta{margin:0 0 10px;color:var(--mute);font-size:15px}
+.ex table{width:100%;border-collapse:collapse;font-size:15px;line-height:1.5;min-width:560px}
+.ex th{text-align:right;color:var(--teal);border-bottom:2px solid var(--teal);padding:8px}
+.ex td{border-bottom:1px solid var(--line);padding:9px 8px;vertical-align:top}
+.ex td small{display:block;color:var(--mute);font-size:13px}
+.ex tr.next td{background:#fbf3e1}
+.ex tr.done td{color:#9aa3a5}
+.ex .st{display:inline-block;font-size:12.5px;font-weight:700;border-radius:999px;padding:2px 10px;white-space:nowrap}
+.st.nx{background:var(--gold);color:#fff}.st.up{background:#e4f1ef;color:var(--teal)}.st.dn{background:#eceae4;color:#7c8487}
+.exb{display:inline-flex;flex-wrap:wrap;gap:4px 8px;align-items:center;margin-top:6px;font-size:14px;font-weight:700;border-radius:10px;padding:3px 10px;background:#e4f1ef;color:var(--teal)}
+.exb.nx{background:#fbf1dc;color:#8a5d12;border:1px solid #ecd6a8}
+.exb.dn{background:#eceae4;color:#7c8487}
+.course.done{opacity:.72}
+.toc a.done{opacity:.6}.toc a.done span::after{content:" · انتهى الاختبار";font-size:12px;color:var(--mute)}
+@media(max-width:560px){.ex table{min-width:0}.ex .o{display:none}.ex .hd h3{font-size:17px}.exbtn .go{display:none}.exbtn .ic{flex-basis:46px;height:46px;font-size:24px}.exbtn strong{font-size:18px}}
 </style>
 </head>
 <body>
@@ -92,6 +122,11 @@ footer .by b{color:#f0cf8a}
 <strong>تنبيه مهم قبل الاستخدام</strong>
 <p>كل ما في هذه الصفحة من ملخصات وبطاقات وغيرها أُعدّ عبر نماذج الذكاء الاصطناعي، ولم تتقدّم مراجعته ولا تدقيقه. والتحقق منه مطلوب من الطالب، مع مطابقة النتائج بالمذكرات المعتمدة، والمرجع عند أي اختلاف هو المذكرة المعتمدة.</p>
 </div></div>
+
+<button class="exbtn" id="exOpen" type="button" aria-haspopup="dialog"><span class="ic">📅</span><span class="tx"><strong>جدول الاختبارات</strong><small id="exNext">المقررات أدناه مرتبة حسب موعد اختبارها</small></span><span class="go">اعرض الجدول</span></button>
+<dialog class="ex" id="exDlg" aria-labelledby="exTitle"><div class="hd"><h3 id="exTitle">📅 جدول اختبارات المستوى الثالث</h3><button type="button" id="exClose">إغلاق ✕</button></div>
+<div class="bd"><p class="meta">القاعة: 310 شريعة · الشعبة 1 · المقر الرئيسي · الوقت: 7:00 – 10:00 مساءً</p>
+<table><thead><tr><th>المقرر</th><th>التاريخ</th><th class="o">الوقت</th><th class="o">القاعة</th><th>الحالة</th></tr></thead><tbody id="exRows"></tbody></table></div></dialog>
 
 <h2 class="h">🧭 طريقة مقترحة للمذاكرة</h2>
 <div class="steps">
@@ -183,6 +218,49 @@ footer .by b{color:#f0cf8a}
       fetch("https://abacus.jasoncameron.dev/hit/stoooof1-mnahj-bahth/level3")
         .then(function(r){ return r.json(); }).then(function(d){ show(d.value); }).catch(function(){});
     });
+})();
+</script>
+<script>
+(function(){
+  /* جدول الاختبارات: التاريخ الهجري (أم القرى) ومقابله الميلادي، والوقت 7–10 مساءً بتوقيت مكة */
+  var EX=[
+    {id:"c6",code:"قصد 5201",name:"قواعد الفقه المالي ومقاصده",day:"الأحد",h:"19 جمادى الآخرة 1448",g:"2026-11-29",gl:"29 نوفمبر 2026"},
+    {id:"c1",code:"قصد 5200",name:"مناهج البحث الاقتصادي",day:"الثلاثاء",h:"21 جمادى الآخرة 1448",g:"2026-12-01",gl:"1 ديسمبر 2026"},
+    {id:"c3",code:"قصد 5205",name:"الأسواق المالية",day:"الخميس",h:"23 جمادى الآخرة 1448",g:"2026-12-03",gl:"3 ديسمبر 2026"},
+    {id:"c2",code:"قصد 5204",name:"تمويل ومصارف إسلامية",day:"الأحد",h:"26 جمادى الآخرة 1448",g:"2026-12-06",gl:"6 ديسمبر 2026"},
+    {id:"c5",code:"قصد 5202",name:"اقتصاديات الوقف والعمل الخيري",day:"الثلاثاء",h:"28 جمادى الآخرة 1448",g:"2026-12-08",gl:"8 ديسمبر 2026"},
+    {id:"c4",code:"قصد 5203",name:"التنمية والتخطيط الاقتصادي",day:"الخميس",h:"1 رجب 1448",g:"2026-12-10",gl:"10 ديسمبر 2026"}
+  ];
+  var now=Date.now(),AR="٠١٢٣٤٥٦٧٨٩";
+  function ar(n){return String(n).replace(/\d/g,function(d){return AR[d]})}
+  EX.forEach(function(e){e.end=new Date(e.g+"T22:00:00+03:00").getTime();e.start=new Date(e.g+"T19:00:00+03:00").getTime();e.done=now>e.end});
+  var up=EX.filter(function(e){return !e.done}),dn=EX.filter(function(e){return e.done});
+  var order=up.concat(dn),next=up[0];
+  function daysTo(e){var a=new Date(new Date(now).toLocaleDateString("en-CA",{timeZone:"Asia/Riyadh"})+"T00:00:00Z"),b=new Date(e.g+"T00:00:00Z");return Math.round((b-a)/864e5)}
+  function when(e){var d=daysTo(e);if(now>=e.start)return"الآن";if(d<=0)return"اليوم مساءً";if(d===1)return"غدًا";if(d===2)return"بعد يومين";return"بعد "+ar(d)+(d<=10?" أيام":" يومًا")}
+  /* ترتيب المقررات وأرقامها */
+  var toc=document.getElementById("toc");
+  var secs={};EX.forEach(function(e){secs[e.id]=document.getElementById(e.id)});
+  order.forEach(function(e,i){
+    var sec=secs[e.id],a=toc.querySelector('a[href="#'+e.id+'"]');if(!sec||!a)return;
+    toc.appendChild(a);a.querySelector("b").textContent=ar(i+1);
+    sec.querySelector(".num").textContent=ar(i+1);
+    var p=document.createElement("div");
+    p.className="exb"+(e.done?" dn":e===next?" nx":"");
+    p.textContent=e.done?"✓ انتهى الاختبار":(e===next?"⏳ الاختبار القادم · ":"📅 الاختبار: ")+e.day+" "+e.h+" · "+e.gl+" · 7–10 م"+(e.done?"":" ("+when(e)+")");
+    sec.querySelector("header div").appendChild(p);
+    if(e.done){sec.classList.add("done");a.classList.add("done")}
+  });
+  var last=toc;order.forEach(function(e){var s=secs[e.id];if(s){last.parentNode.insertBefore(s,last.nextSibling);last=s}});
+  /* الجدول */
+  document.getElementById("exRows").innerHTML=order.map(function(e){
+    var st=e.done?'<span class="st dn">انتهى الاختبار</span>':e===next?'<span class="st nx">القادم · '+when(e)+'</span>':'<span class="st up">'+when(e)+'</span>';
+    return '<tr class="'+(e.done?"done":e===next?"next":"")+'"><td><b>'+e.name+'</b><small>'+e.code+'</small></td><td>'+e.day+' '+e.h+'<small>'+e.gl+'</small></td><td class="o">7:00 – 10:00 م</td><td class="o">310 شريعة</td><td>'+st+'</td></tr>'}).join("");
+  document.getElementById("exNext").innerHTML=next?'القادم: <b>'+next.name+'</b> · '+next.day+' '+next.h+' ('+when(next)+')':'انتهت اختبارات المستوى الثالث، وفقكم الله';
+  var dlg=document.getElementById("exDlg");
+  document.getElementById("exOpen").onclick=function(){if(dlg.showModal)dlg.showModal();else dlg.setAttribute("open","")};
+  document.getElementById("exClose").onclick=function(){dlg.close?dlg.close():dlg.removeAttribute("open")};
+  dlg.addEventListener("click",function(ev){if(ev.target===dlg)dlg.close()});
 })();
 </script>
 </body>
